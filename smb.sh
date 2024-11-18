@@ -16,7 +16,7 @@ read -p "Enter your name [$CURRENT_USER]: " USER
 USER="${USER:-$CURRENT_USER}"
 sudo smbpasswd -a "$USER"
 echo "Updating folder permissions..."
-sudo chmod -R 0770 /srv/server
-sudo chown root:smb /srv/server
+sudo chmod -R g+rwx /srv/server
+sudo chown "$USER":smb /srv/server
 echo "Restarting smb service..."
 sudo service smbd restart
