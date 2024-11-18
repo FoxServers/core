@@ -5,7 +5,9 @@ echo "Creating server folder..."
 sudo mkdir -p /srv/server
 sudo chmod a+rwx /srv/server
 echo "Editing smb config to include new folder..."
-echo "[Server]\n  path = /srv/server\n  browseable = yes\n  guest ok = no\n  writeable = yes\n  read only = no\n  valid users = @smb" >> /etc/samba/smb.conf
+if ! grep -F "[Server]" /etc/samba/smb.conf; then
+    echo "[Server]\n  path = /srv/server\n  browseable = yes\n  guest ok = no\n  writeable = yes\n  read only = no\n  valid users = @smb" >> /etc/samba/smb.conf
+fi
 echo "Updating firewall settings..."
 sudo ufw allow samba
 echo "Creating smb user..."
@@ -14,6 +16,7 @@ sudo addgroup smb
 sudo adduser "$CURRENT_USER" smb
 read -p "Enter your name [$CURRENT_USER]: " USER
 USER="${USER:-$CURRENT_USER}"
+echo "User $USER was selected..."
 sudo smbpasswd -a "$USER"
 echo "Updating folder permissions..."
 sudo chmod -R g+rwx /srv/server
