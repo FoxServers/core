@@ -1,0 +1,51 @@
+#!/bin/sh
+help() {
+    echo "Syntax: foxsevers [add|init|info|reload|remove|restart|start|stop|version]"
+    echo "options:"
+    echo "add [options]       Adds a server to the management service"
+    echo "init                Initalizes server folder and configuration files"
+    echo "info                Prints the man file for FoxServers"
+    echo "reload [options]    Reloads select sub-services"
+    echo "remove [options]    Removes a server from the management service"
+    echo "restart             Restarts all servers/services"
+    echo "start               Starts all servers/services"
+    echo "stop                Stops all servers/services"
+    echo "version             Prints current installed version"
+    echo "help                Prints this help page"
+}
+
+case "$1" in
+    add)
+        /usr/bin/bash /opt/foxservers/core/bin/add ${2}
+        ;;
+    init)
+        /usr/bin/bash /opt/foxservers/core/bin/init ${2} ${3} ${4} ${5}
+        ;;
+    info)
+        cat /opt/foxservers/core/man/foxservers
+        ;;
+    reload)
+
+        ;;
+    remove)
+        /usr/bin/bash /opt/foxservers/core/bin/remove ${2}
+        ;;
+    restart)
+        /usr/bin/bash /opt/foxservers/core/bin/restart
+        ;;
+    start)
+        /usr/bin/bash /opt/foxservers/core/bin/start
+        ;;
+    stop)
+        /usr/bin/bash /opt/foxservers/core/bin/stop
+        ;;
+    version)
+        echo "FoxServers 0.1.0"
+        ;;
+    help)
+        help
+        ;;
+    *)
+        help
+        ;;
+esac
