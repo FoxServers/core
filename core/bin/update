@@ -38,8 +38,8 @@ case "$2" in
 esac
 
 sudo systemctl stop foxservers
-sudo mkdir /tmp/foxservers.bak/ &&
-sudo mkdir /tmp/foxservers.bak/services/ &&
+sudo mkdir /tmp/foxservers.bak/
+sudo mkdir /tmp/foxservers.bak/services/
 sudo cp -pf /opt/foxservers/ /tmp/foxservers.bak/ &&
 sudo cp -pf /etc/systemd/system/foxservers.* /tmp/foxservers.bak/services/ &&
 sudo mkdir /tmp/foxservers/ &&
