@@ -45,10 +45,10 @@ sudo cp -pf /etc/systemd/system/foxservers.* /tmp/foxservers.bak/services/
 sudo mkdir /tmp/foxservers/
 sudo mkdir /tmp/foxservers/downloads/
 sudo curl -L https://api.github.com/repos/FoxServers/core/tarball/${1} -o /tmp/foxservers/downloads/core.${1}.tar.gz &&
-sudo tar -zvxf core.${1}.tar.gz --directory /tmp/foxservers/downloads --strip-components=1 &&
-sudo chmod +x foxservers_install.sh &&
+sudo tar -zvxf /tmp/foxservers/downloads/core.${1}.tar.gz --directory /tmp/foxservers/downloads --strip-components=1 &&
+sudo chmod +x /tmp/foxservers/downloads/foxservers_install.sh &&
 sudo rm -R /opt/foxservers/ &&
 sudo rm -R /etc/systemd/system/foxservers.* &&
-./foxservers_install.sh &&
+/tmp/foxservers/downloads/foxservers_install.sh &&
 sudo rm core.${1}.tar.gz &&
 sudo rm -rf /tmp/foxservers/downloads/{*,.*}
