@@ -40,10 +40,10 @@ esac
 sudo systemctl stop foxservers
 sudo mkdir /tmp/foxservers.bak/
 sudo mkdir /tmp/foxservers.bak/services/
-sudo cp -pf -r /opt/foxservers/ /tmp/foxservers.bak/ &&
-sudo cp -pf /etc/systemd/system/foxservers.* /tmp/foxservers.bak/services/ &&
-sudo mkdir /tmp/foxservers/ &&
-sudo mkdir /tmp/foxservers/downloads/ &&
+sudo cp -pf -r /opt/foxservers/ /tmp/foxservers.bak/
+sudo cp -pf /etc/systemd/system/foxservers.* /tmp/foxservers.bak/services/
+sudo mkdir /tmp/foxservers/
+sudo mkdir /tmp/foxservers/downloads/
 curl -L https://api.github.com/repos/FoxServers/core/tarball/${1} > /tmp/foxservers/downloads/core.${1}.tar.gz &&
 sudo tar -zvxf core.${1}.tar.gz --directory /tmp/foxservers/downloads --strip-components=1 &&
 sudo chmod +x foxservers_install.sh &&
