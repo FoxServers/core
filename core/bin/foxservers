@@ -48,7 +48,7 @@ case "$1" in
         /usr/bin/bash /opt/foxservers/core/bin/stop
         ;;
     version)
-        echo "FoxServers 0.1.3"
+        echo "FoxServers 0.2.0"
         ;;
     help)
         help

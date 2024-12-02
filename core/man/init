@@ -1,4 +1,4 @@
-foxservers 0.1.3
+foxservers 0.2.0
 Usage: foxservers init folder path/to/.env path/to/dockerfile [optional] path/to/.zip [optional] path/to/.png
 
 init provides a simple one script setup for the server. Data by default is stored in /srv/foxservers/folder/, but can be customized in the dockerfile.

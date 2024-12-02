@@ -1,4 +1,4 @@
-foxservers 0.1.3
+foxservers 0.2.0
 Usage: foxservers get file
 
 get will pull pre-configured foxservers docker compose files as templates for supported server types. See our website/github for these configurations.
