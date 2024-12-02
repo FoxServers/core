@@ -3,6 +3,7 @@ help() {
     echo "Syntax: foxsevers [add|init|info|reload|remove|restart|start|stop|version]"
     echo "options:"
     echo "add [options]       Adds a server to the management service"
+    echo "get [options]       Gets docker compose files from FoxServers repository"
     echo "init                Initalizes server folder and configuration files"
     echo "info                Prints the man file for FoxServers"
     echo "reload [options]    Reloads select sub-services"

@@ -1,7 +1,7 @@
 #!/bin/sh
 case $1 in
     releases)
-        curl -L "https://api.github.com/repos/FoxServers/docker/releases"
+        curl -L "https://api.github.com/repos/FoxServers/docker/releases" | grep "tag_name"
         ;;
     *)
         if [ -d "/tmp/foxservers/downloads/"]
