@@ -11,25 +11,24 @@ fi
 case "$1" in
     help)
         help
+        exit 0
         ;;
     releases)
         curl -L "https://api.github.com/repos/FoxServers/core/releases" | grep "tag_name"
+        exit 0
         ;;
     *)
-        continue
         ;;
 esac
 
 case "$2" in
     -y|-Y)
-        continue
         ;;
     *)
         read -p "Continuing with this update will shut down all servers, are you sure you want to update? [y/N]: " YESNO
         YESNO="${YESNO:-"N"}"
         case "$YESNO" in
             y|Y)
-            continue
             ;;
             *)
             exit 0
@@ -39,17 +38,17 @@ case "$2" in
 esac
 
 sudo systemctl stop foxservers
-sudo mkdir /tmp/foxservers.bak/
-sudo mkdir /tmp/foxservers.bak/services/
-sudo cp -pf /opt/foxservers/ /tmp/foxservers.bak/
-sudo cp -pf /etc/systemd/system/foxservers.* /tmp/foxservers.bak/services/
-sudo rm -R /opt/foxservers/
-sudo rm -R /etc/systemd/system/foxservers.*
-sudo mkdir /tmp/foxservers/
-sudo mkdir /tmp/foxservers/downloads/
-curl -L https://api.github.com/repos/FoxServers/core/tarball/${1} > /tmp/foxservers/downloads/core.${1}.tar.gz
-sudo tar -zvxf core.${1}.tar.gz --directory /tmp/foxservers/downloads --strip-components=1
-sudo chmod +x foxservers_install.sh
-./foxservers_install.sh
-sudo rm core.${1}.tar.gz
+sudo mkdir /tmp/foxservers.bak/ &&
+sudo mkdir /tmp/foxservers.bak/services/ &&
+sudo cp -pf /opt/foxservers/ /tmp/foxservers.bak/ &&
+sudo cp -pf /etc/systemd/system/foxservers.* /tmp/foxservers.bak/services/ &&
+sudo mkdir /tmp/foxservers/ &&
+sudo mkdir /tmp/foxservers/downloads/ &&
+curl -L https://api.github.com/repos/FoxServers/core/tarball/${1} > /tmp/foxservers/downloads/core.${1}.tar.gz &&
+sudo tar -zvxf core.${1}.tar.gz --directory /tmp/foxservers/downloads --strip-components=1 &&
+sudo chmod +x foxservers_install.sh &&
+sudo rm -R /opt/foxservers/ &&
+sudo rm -R /etc/systemd/system/foxservers.* &&
+./foxservers_install.sh &&
+sudo rm core.${1}.tar.gz &&
 sudo rm -rf /tmp/foxservers/downloads/{*,.*}
