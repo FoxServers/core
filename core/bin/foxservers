@@ -12,6 +12,7 @@ help() {
     echo "restart             Restarts all servers/services"
     echo "start               Starts all servers/services"
     echo "stop                Stops all servers/services"
+    echo "update [version]    Updates FoxServers to specified version"
     echo "version             Prints current installed version"
     echo "help                Prints this help page"
 }
@@ -48,7 +49,7 @@ case "$1" in
         /usr/bin/bash /opt/foxservers/core/bin/stop
         ;;
     version)
-        echo "FoxServers 0.2.0"
+        echo "FoxServers 0.2.1"
         ;;
     help)
         help

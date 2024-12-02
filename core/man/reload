@@ -1,4 +1,4 @@
-foxservers 0.2.0
+foxservers 0.2.1
 Usage: foxservers reload service
 
 reload will restart the specified service and any sub-services.

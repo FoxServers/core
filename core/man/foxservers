@@ -1,4 +1,4 @@
-foxservers 0.2.0
+foxservers 0.2.1
 Usage: foxservers [options] command
 
 FoxServers is a platform designed to host containerized Minecraft servers using Linux systemd services. It offers a customizable and scalable solution for server management through centralized tools and features.
