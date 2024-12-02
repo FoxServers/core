@@ -17,6 +17,7 @@ case "$1" in
         ;;
     *)
         continue
+        ;;
 esac
 
 case "$2" in
@@ -29,8 +30,10 @@ case "$2" in
         case "$YESNO" in
             y|Y)
             continue
+            ;;
             *)
             exit 0
+            ;;
         esac
         ;;
 esac
