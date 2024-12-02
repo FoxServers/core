@@ -18,13 +18,17 @@ case "$1" in
             exit 22
         fi
         if [ -z "$3" ]; then
-            echo "Missing optional .zip file for mods configuration, skipping..."
+            echo "Must specify docker file for server configuration"
+            exit 22
         fi
         if [ -z "$4" ]; then
+            echo "Missing optional .zip file for mods configuration, skipping..."
+        fi
+        if [ -z "$5" ]; then
             echo "Missing optional .png file for server image, skipping..."
         fi
 
-        /usr/bin/bash /opt/foxservers/core/scripts/foxservers.server.init.sh ${1} ${2} ${3} ${4}
+        /usr/bin/bash /opt/foxservers/core/scripts/foxservers.server.init.sh ${1} ${2} ${3} ${4} ${5}
         /usr/bin/bash /opt/foxservers/core/scripts/foxservers.server.add.sh ${1}
         /usr/bin/bash /opt/foxservers/core/scripts/foxservers.servers.recreate.sh
         ;;

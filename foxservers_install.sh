@@ -1,4 +1,5 @@
 #!/bin/sh
+sudo mkdir /tmp/foxservers/
 sudo chmod +x ./install/*.sh
 ./install/apt-install.sh
 ./install/create_folders.sh

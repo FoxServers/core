@@ -14,9 +14,6 @@ sudo mv ./core/man/* /opt/foxservers/core/man/
 echo "Moving core binaries to /opt/foxservers/core/bin/"
 sudo mv ./core/bin/* /opt/foxservers/core/bin/
 
-echo "Moving docker-compose to /opt/foxservers/core/"
-sudo mv ./core/docker-compose.yml /opt/foxservers/core/docker-compose.yml
-
 echo "Moving servers.json to /opt/foxservers/core/"
 sudo mv -n ./core/servers.json /opt/foxservers/core/servers.json
 
