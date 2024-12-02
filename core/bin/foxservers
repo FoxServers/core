@@ -20,6 +20,9 @@ case "$1" in
     add)
         /usr/bin/bash /opt/foxservers/core/bin/add ${2}
         ;;
+    autostart)
+        /usr/bin/bash /opt/foxservers/core/bin/autostart ${2}
+        ;;
     get)
         /usr/bin/bash /opt/foxservers/core/bin/get ${2}
         ;;
