@@ -18,6 +18,9 @@ case "$1" in
     add)
         /usr/bin/bash /opt/foxservers/core/bin/add ${2}
         ;;
+    get)
+        /usr/bin/bash /opt/foxservers/core/bin/get ${2}
+        ;;
     init)
         /usr/bin/bash /opt/foxservers/core/bin/init ${2} ${3} ${4} ${5}
         ;;
@@ -25,7 +28,7 @@ case "$1" in
         cat /opt/foxservers/core/man/foxservers
         ;;
     reload)
-
+        /usr/bin/bash /opt/foxservers/core/bin/reload ${2}
         ;;
     remove)
         /usr/bin/bash /opt/foxservers/core/bin/remove ${2}
